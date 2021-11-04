@@ -1,0 +1,241 @@
+.mybox{
+    width: 1500px;
+    height: 4550px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.img{
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gainsboro;
+    margin-left: 10px;
+    display: block;
+}
+td{
+    height: 20px;
+}
+.txt{
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px gainsboro;
+    margin-left: 20px;
+    margin-top: 10px;
+    text-align: center;
+    line-height: 10px;
+    color: black;
+    background-color: white;
+    height: 20px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.heart {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin: 150px;
+    animation: scale 1s linear infinite;
+    /*名称 1s 匀速 无限循环*/
+}
+
+@keyframes scale {
+
+    /*必须和animation一起用  动画帧*/
+    50% {
+        transform: scale(2)
+    }
+}
+
+.heart:after,
+.heart:before {
+    position: absolute;
+    width: 60px;
+    height: 100%;
+    background-color: #ff6666;
+    content: "";
+    border-radius: 50% 50% 0 0;
+}
+
+.heart:before {
+    left: 0;
+    transform: rotate(-52deg);
+}
+
+.heart:after {
+    right: 0;
+    transform: rotate(49deg);
+}
+.heart1{
+    display: inline;
+    float: left;
+}
+.heart2{
+    display: inline;
+    float: right;
+}
+
+div#fanShaped {
+    width: 100px;
+    height: 100px;
+    border: 6px solid green;
+    border-bottom: none;
+    border-radius: 50% 50% 50% 50%;
+    position: relative;
+    -webkit-animation: rotate 10s infinite linear;
+    -o-animation: rotate 10s infinite linear;
+    animation: rotate 2s infinite linear;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+    }
+}
+.circle2{
+    display: inline;
+}
+
+#box {
+    width: 100px;
+    height: 100px;
+    background: green;
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    box-shadow: 10px 10px red;
+    /* box-shadow: inset 0 0 120px #FFF,
+    inset 0 0 200px #f0f,
+    inset 200px 200px 400px #0ff,
+    0 0 30px rgba(109, 187, 223, 0.5),
+    0 0 80px #fff; */
+}
+
+.img2{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}
+.donate{
+    border: solid 4px green;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px 8px rgb(134, 132, 132);
+    margin-top: 30px;
+}
+.number-at{
+    margin-top: 30px;
+}
+.container_footer{
+    border: solid 4px green;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px 8px rgb(134, 132, 132);
+}
+/* 可停止的滚动 */
+.container2{  
+    width: 1000px;
+    height: 450px; 
+    overflow: hidden;  
+    position: relative;  
+    border: 4px solid green;
+    border-radius: 30px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 0px 10px 8px rgb(134, 132, 132);
+}  
+.container2 .imgcss{  
+    animation:scoll 25s linear 0s infinite;  
+} 
+.container2 .textcss {
+    animation:textScroll 25s linear 0s infinite;  
+}
+.container2 ul {
+    width:4000px;  
+    left:0;  
+    top:0;  
+    position: absolute;  
+}
+.container2 ul:hover {
+    animation-play-state: paused;
+} 
+.container2 ul li{  
+    float:left;  
+}  
+@keyframes scoll{  
+    from{  
+        left:700px;  
+    }  
+    to{  
+        left:-1500px;  
+    }  
+}   
+@keyframes textScroll{  
+    from{  
+        left:700px;  
+    }  
+    to{  
+        left:-1500px;  
+    }  
+}   
+
+#img1{
+    margin-left: 50px;
+    border:  4px solid green;
+    display: block;
+    width: 400px;
+    height: 400px;
+    margin-top: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px 10px rgb(255, 255, 255);
+}
+.text{
+    margin-left: 10px;
+    border: 2px solid white;
+    text-align: center;
+    border-radius: 0px 0px 5px 5px;
+}
+.clickBox{
+    width: 800px;
+    height: 500px;
+    background: #000;
+    animation: shake-it .5s reverse infinite;
+}
+
+/* 给文字添加类似于抖音的那种抖动效果 */
+@keyframes shake-it {
+    0%{
+        text-shadow:0 0 rgba(0,255,255,.5), 0 0 rgba(255,0,0,.5);
+    }
+    12.5%{
+        text-shadow:-1px 0 rgba(0,255,255,.5), 1px 0 rgba(255,0,0,.5);
+    }
+    25%{
+        text-shadow:-2px 0 rgba(0,255,255,.5), 2px 0 rgba(255,0,0,.5);
+    }
+    37.5%{
+        text-shadow:-1px 0 rgba(0,255,255,.5), 1px 0 rgba(255,0,0,.5);
+    }
+    50%{
+        text-shadow: -5px 0 rgba(0,255,255,.5), 3px 0 rgba(255,0,0,.5);
+    }
+    100%{
+        text-shadow: 3px 0 rgba(0,255,255,.5), 5px 0 rgba(255,0,0,.5) ;
+    }
+}

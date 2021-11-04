@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>这是科中ELAB</title>
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="js/jquery.min.js"></script>
+	<!-- Custom Theme files -->
+	<!--theme-style-->
+	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+	<!--//theme-style-->
+	<!-- 横向滑动 -->
+	<link href="css/test.css" rel="stylesheet" type="text/css" media="all" />
+	<!-- 自适应 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Open Heart Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- 悬浮 -->
+	<div style="overflow: hidden;position: fixed;right: 10px;bottom: 20px;z-index: 10;">
+		<div style="overflow: hidden;">
+			<div style="padding-top:20px;padding-right:50px;padding-bottom:50px">
+				<a href="#" style="float: right;" class="btns"><img width="50px" height="50px" src="images/up.gif"></a>
+			</div>
+		</div>
+	</div>
+
+	<!-- 鼠标点击动画 -->
+	<script type="text/javascript">
+
+		(function (window, document, undefined) {
+			var hearts = [];
+			window.requestAnimationFrame = (function () {
+				return window.requestAnimationFrame ||
+					window.webkitRequestAnimationFrame ||
+					window.mozRequestAnimationFrame ||
+					window.oRequestAnimationFrame ||
+					window.msRequestAnimationFrame ||
+					function (callback) {
+						setTimeout(callback, 1000 / 60);
+					}
+			})();
+			init();
+			function init() {
+				css(".heart{width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);}.heart:after,.heart:before{content: '';width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: absolute;}.heart:after{top: -5px;}.heart:before{left: -5px;}");
+				attachEvent();
+				gameloop();
+			}
+			function gameloop() {
+				for (var i = 0; i < hearts.length; i++) {
+					if (hearts[i].alpha <= 0) {
+						document.body.removeChild(hearts[i].el);
+						hearts.splice(i, 1);
+						continue;
+					}
+					hearts[i].y--;
+					hearts[i].scale += 0.004;
+					hearts[i].alpha -= 0.013;
+					hearts[i].el.style.cssText = "left:" + hearts[i].x + "px;top:" + hearts[i].y + "px;opacity:" + hearts[i].alpha + ";transform:scale(" + hearts[i].scale + "," + hearts[i].scale + ") rotate(45deg);background:" + hearts[i].color;
+				}
+				requestAnimationFrame(gameloop);
+			}
+			function attachEvent() {
+				var old = typeof window.onclick === "function" && window.onclick;
+				window.onclick = function (event) {
+					old && old();
+					createHeart(event);
+				}
+			}
+			function createHeart(event) {
+				var d = document.createElement("div");
+				d.className = "heart";
+				hearts.push({
+					el: d,
+					x: event.clientX - 5,
+					y: event.clientY - 5,
+					scale: 1,
+					alpha: 1,
+					color: randomColor()
+				});
+				document.body.appendChild(d);
+			}
+			function css(css) {
+				var style = document.createElement("style");
+				style.type = "text/css";
+				try {
+					style.appendChild(document.createTextNode(css));
+				} catch (ex) {
+					style.styleSheet.cssText = css;
+				}
+				document.getElementsByTagName('head')[0].appendChild(style);
+			}
+			function randomColor() {
+				return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + ")";
+			}
+		})(window, document);
+	</script>
+	<!-- 转动的圈圈 -->
+	<script type="text/javascript">
+		var _PageHeight = document.documentElement.clientHeight,
+			_PageWidth = document.documentElement.clientWidth;
+		var _LoadingTop = _PageHeight > 61 ? (_PageHeight - 61) / 2 : 0,
+			_LoadingLeft = _PageWidth > 215 ? (_PageWidth - 215) / 2 : 0;
+		//在页面未加载完毕之前显示的loading Html自定义内容
+		var _LoadingHtml = '<div id="loadingDiv" style="position:absolute;left:0;width:100%;height:' + _PageHeight + 'px;top:0;background:#f3f8ff;opacity:0.8;filter:alpha(opacity=80);z-index:10000;"><div style="position: absolute; cursor1: wait; left: ' + _LoadingLeft + 'px; top:' + _LoadingTop + 'px; width: auto; height: 57px; line-height: 57px; padding-left: 50px; padding-right: 5px; background: #fff (../../img/logo.png) no-repeat scroll 5px 10px; border: 2px solid #95B8E7; color: #696969; font-family:\'Microsoft YaHei\';">页面加载中，请等待...</div></div>';
+
+		//呈现loading效果
+		document.write(_LoadingHtml);
+		//监听加载状态改变
+		document.onreadystatechange = completeLoading;
+
+		//加载状态为complete时移除loading效果
+
+		function completeLoading() {
+
+			if (document.readyState == "complete") {
+
+				var loadingMask = document.getElementById('loadingDiv');
+
+				loadingMask.parentNode.removeChild(loadingMask);
+
+			}
+
+		}
+	</script>
+	<div class="heart heart2"></div>
+
+
+</head>
+
+<body style="background-image: url('./images/rain.gif');">
+	<div class="mybox">
+		<img src="images/smile2.gif" alt="" id="im" class="img2">
+		<script>
+			//鼠标在页面中移动,图片跟着鼠标移动
+			document.onmousemove = function (e) { //e为事件参数
+				//鼠标的移动的横纵坐标
+				//可视区域的横坐标
+				//可视区域的纵坐标
+				document.getElementById("im").style.left = e.clientX + "px";
+				document.getElementById("im").style.top = e.clientY + "px";
+			};
+		</script>
+		<div>
+			<div id="fanShaped">
+				<div
+					style="width: 60px;height: 60px;background:black;position: absolute;bottom: 0;left: 50%;margin-left: -20px;">
+				</div>
+			</div>
+		</div>
+
+		<script src="js/responsiveslides.min.js"></script>
+		<script>
+			$(function () {
+				$("#slider").responsiveSlides({
+					auto: true,
+					speed: 500,
+					namespace: "callbacks",
+					pager: true,
+				});
+			});
+		</script>
+		<div class="slider">
+			<div class="callbacks_container">
+				<ul class="rslides" id="slider">
+					<li>
+						<img src="images/DSC_3990.JPG" class="Nimg"
+							style="border-radius: 40px;box-shadow: 0px 0px 10px 4px rgb(128, 216, 212);">
+						<div class="banner">
+							<h2 style="color:blue ">WELCOME TO </h2>
+							<h2 style="color: blue">DLUT </h2>
+						</div>
+					</li>
+					<li>
+						<img src="images/room.jpg" class="Nimg"
+							style="border-radius: 40px;box-shadow: 0px 0px 10px 4px rgb(128, 216, 212);">
+						<div class="banner">
+							<h2 style="color:green">WELCOME TO </h2>
+							<h2 style="color:green">ELAB </h2>
+						</div>
+					</li>
+					<li>
+						<img src="images/show.png" class="Nimg"
+							style="border-radius: 40px;box-shadow: 0px 0px 10px 4px rgb(128, 216, 212);">
+						<div class="banner">
+							<h2 style="color:red">Let's do it</h2>
+							<h2 style="color:red">together</h2>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!--header-->
+		<div class="header">
+			<div class="container">
+				<div class="logo">
+					<a href="#"><img src="images/dlut_logo.jpg" style="height: 100px;" /></a>
+				</div>
+				<div class="top-nav">
+					<span class="menu"> </span>
+					<ul>
+						<li class="active"><a href="elabWeb.html" class="scroll">科中主页 </a></li>
+						&emsp;
+						<li><a href="#" class="scroll">科中论坛</a></li>
+						&emsp;
+						<li><a href="http://pan.dlut.edu.cn/" class="scroll">科中资源</a></li>
+					</ul>
+					<!--script-->
+					<script>
+						$("span.menu").click(function () {
+							$(".top-nav ul").slideToggle(500, function () {
+							});
+						});
+					</script>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+		</div>
+
+
+
+		<div class="content" id="intrElab">
+			<div>
+				<div class="container">
+					<div class="donate">
+						<div class="donate-grid">
+							<img src="images/greenLogo.png">
+
+							<p>大连理工大学电气创新实践基地（简称“科中”，英文缩写ELAB）成立于1998年，依托于电气试验教学中心，齐全的硬件设施，优秀的创新实践氛围，为广大电子设计和软件开发爱好者创造良好的氛围。科中目前成员近百人，涵盖本科所有年级，分为电子组、软件组，承担“微机安装与调试”助课任务。
+							</p>
+						</div>
+
+						<div class="sit-in">
+							<div class="col-md-4 ad-in">
+								<h5>学习</h5>
+								<p>&emsp;&emsp;科中学习氛围浓厚，打卡学习，违纪警告。每周召开例会，学长、学姐分享、讲解自己的项目，提前了解高年级知识</p>
+								<img src="images/study3.jpg" class="show_img">
+								<br>
+								<p>眼睛：我懂&emsp;脑子：我废了</p>
+								<img src="images/kit.jpg" class="show_img">
+								<br>
+								<p>仪器千千万，我都不会使</p>
+								<img src="images/study2.jpg" class="show_img">
+								<br>
+								<p>画图让人快乐（脱发）</p>
+							</div>
+
+							<div class="col-md-4 ad-in">
+								<h5>比赛</h5>
+								<p>&emsp;&emsp;科中拥有独立教室、实验室，软、硬设备齐全，每名成员分配一台电脑。成员积极参加各类科创比赛，如：电赛、CTF等，并取得优异的成绩。</p>
+								<img src="images/class.jpg">
+								<p>个人（高配置^-^）电脑</p>
+								<img src="images/ctf.jpg">
+								<p>今晚和CTF过夜</p>
+								<img src="images/ele (1).jpg">
+								<p>人人爱电赛</p>
+							</div>
+
+							<div class="col-md-4 ad-in">
+								<h5>助课与其他</h5>
+								<p>&emsp;&emsp;科中成员需完成“微机安装与调试”课程的学习，大二开始担任该课程助教，更可获得成为讲师的机会，收获与众不同的助教、讲解经历。</p>
+								<img src="images/teacher.jpg">
+								<p>今天，我是讲师(打工人)</p>
+								<img src="images/staff.JPEG">
+								<p>今天，我是助教（打工人）</p>
+								<img src="images/beautiful.jpg">
+								<p>科中没有学姐？真有你的</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+
+						<a href="#footer" class="btn  btn-1c">心动不如行动，立即加入我们</a>
+					</div>
+				</div>
+
+			</div>
+
+			<!---->
+
+
+			<div class="number-at" id="sof&elc">
+				<div class="in-number-in">
+					<div class="in-number">
+						<div class="wmuSlider example1">
+							<div class="wmuSliderWrapper">
+								<article style="position: absolute; width: 100%; opacity: 0;">
+									<div class="welcome_box">
+										<h2 style="color:rgb(240, 208, 25);font-size: 3em;">软件组</h2>
+										<p>软件组兴趣为导向，以软件开发为主要出发点，但又不局限于软件，采取自学为主，讲解为辅，集中交流的模式进行学习。</p>
+										<img src="images/studySof1.jpg">
+										<img src="images/studySof2.jpg">
+									</div>
+									<div class="clearfix"> </div>
+								</article>
+								<article style="position: absolute; width: 100%; opacity: 0;">
+									<div class="welcome_box">
+										<p>每周召开组内组会，汇报本周学习进度，分享学习内容。寒、暑假安排小组任务，根据兴趣爱好组队选题，假期结束进行结项汇报及总结。</p>
+										<img src="images/MS.png" style="margin-left: 125px;">
+										<img src="images/five.png" style="margin-left: 125px;">
+									</div>
+									<div class="clearfix"> </div>
+								</article>
+							</div>
+						</div>
+						<!---->
+						<script src="js/jquery.wmuSlider.js"></script>
+						<script>
+							$('.example1').wmuSlider({
+								pagination: false,
+							});
+						</script>
+					</div>
+				</div>
+
+				<div class="grid-men" style="height: 600px;">
+					<div class="men-grid">
+						<span>电</span>
+						<p>电子组以硬件开发为主,每周召开组会。</p>
+						<img class="img-responsive" src="images/ele4.jpg" alt=" " />
+					</div>
+					<div class="men-grid number-ape">
+						<span>子</span>
+						<p>以“全国大学生电子设计大赛”为目标</p>
+						<img class="img-responsive" src="images/ele5.jpg" alt=" " />
+					</div>
+					<div class="men-grid ad-right">
+						<span>组</span>
+						<p>学习单片机的使用、无人机的开发</p>
+						<img class="img-responsive" src="images/ele2.jpg" alt=" " />
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<div class="clearfix"> </div>
+			</div>
+			<!---->
+
+
+			<div class="services-in" id="showElab">
+				<div>
+					<h3>作品展示</h3>
+					<div class="service-grid">
+						<!--下面是向左滚动代码-->
+						<div id="butong_net_left" style="overflow:hidden;width: 1500px;">
+							<table cellpadding="0" cellspacing="0" border="0">
+								<tr>
+									<td id="butong_net_left1" valign="top" align="center">
+										<table cellpadding="2" cellspacing="0" border="0">
+											<tr align="center">
+												<td> <img src="./images/pi1.jpg" class="img">
+													<p class="txt">测试文字</p>
+												</td>
+												<td> <img src="./images/pi1.jpg" class="img">
+													<p class="txt">测试文字</p>
+												</td>
+												<td> <img src="./images/pi1.jpg" class="img">
+													<p class="txt">测试文字</p>
+												</td>
+												<td> <img src="./images/pi1.jpg" class="img">
+													<p class="txt">测试文字</p>
+												</td>
+												<td> <img src="./images/pi1.jpg" class="img">
+													<p class="txt">测试文字</p>
+												</td>
+												<td> <img src="./images/pi1.jpg" class="img">
+													<p class="txt">测试文字</p>
+												</td>
+												<td> <img src="./images/pi1.jpg" class="img">
+													<p class="txt">测试文字</p>
+												</td>
+												<td> <img src="./images/pi1.jpg" class="img">
+													<p class="txt">测试文字</p>
+												</td>
+												<td> <img src="./images/pi1.jpg" class="img">
+													<p class="txt">测试文字</p>
+												</td>
+												<td> <img src="./images/pi1.jpg" class="img">
+													<p class="txt">测试文字</p>
+												</td>
+												<td> <img src="./images/pi1.jpg" class="img">
+													<p class="txt">测试文字</p>
+												</td>
+											</tr>
+										</table>
+									</td>
+									<td id="butong_net_left2" valign="top"></td>
+								</tr>
+							</table>
+						</div>
+						<script>
+							var speed = 50//速度数值越大速度越慢
+							butong_net_left2.innerHTML = butong_net_left1.innerHTML
+							function Marquee3() {
+								if (butong_net_left2.offsetWidth - butong_net_left.scrollLeft <= 0)
+									butong_net_left.scrollLeft -= butong_net_left1.offsetWidth
+								else {
+									butong_net_left.scrollLeft++
+								}
+							}
+							var MyMar3 = setInterval(Marquee3, speed)
+							butong_net_left.οnmοuseοver = function () { clearInterval(MyMar3) }
+							butong_net_left.οnmοuseοut = function () { MyMar3 = setInterval(Marquee3, speed) }
+						</script>
+						<!--向左滚动代码结束-->
+						<br><br>
+						<!--下面是向右滚动代码-->
+						<h3>获奖展示</h3>
+						<div class="service-grid">
+							<div id="butong_net_right" style="overflow:hidden;width: 1500px;">
+								<table cellpadding="0" cellspacing="0" border="0">
+									<tr>
+										<td id="butong_net_right1" valign="top" align="center">
+											<table cellpadding="2" cellspacing="0" border="0">
+												<tr align="center">
+													<td> <img src="./images/pi1.jpg" class="img">
+														<p class="txt">测试文字</p>
+													</td>
+													<td> <img src="./images/pi1.jpg" class="img">
+														<p class="txt">测试文字</p>
+													</td>
+													<td> <img src="./images/pi1.jpg" class="img">
+														<p class="txt">测试文字</p>
+													</td>
+													<td> <img src="./images/pi1.jpg" class="img">
+														<p class="txt">测试文字</p>
+													</td>
+													<td> <img src="./images/pi1.jpg" class="img">
+														<p class="txt">测试文字</p>
+													</td>
+													<td> <img src="./images/pi1.jpg" class="img">
+														<p class="txt">测试文字</p>
+													</td>
+													<td> <img src="./images/pi1.jpg" class="img">
+														<p class="txt">测试文字</p>
+													</td>
+													<td> <img src="./images/pi1.jpg" class="img">
+														<p class="txt">测试文字</p>
+													</td>
+													<td> <img src="./images/pi1.jpg" class="img">
+														<p class="txt">测试文字</p>
+													</td>
+													<td> <img src="./images/pi1.jpg" class="img">
+														<p class="txt">测试文字</p>
+													</td>
+													<td> <img src="./images/pi1.jpg" class="img">
+														<p class="txt">测试文字</p>
+													</td>
+												</tr>
+											</table>
+										</td>
+										<td id="butong_net_right2" valign="top"></td>
+									</tr>
+								</table>
+							</div>
+							<script>
+								var speed = 50//速度数值越大速度越慢
+								butong_net_right2.innerHTML = butong_net_right1.innerHTML
+								function Marquee4() {
+									if (butong_net_right.scrollLeft <= 0)
+										butong_net_right.scrollLeft += butong_net_right2.offsetWidth
+									else {
+										butong_net_right.scrollLeft--
+									}
+								}
+								var MyMar4 = setInterval(Marquee4, speed)
+								butong_net_right.οnmοuseοver = function () { clearInterval(MyMar4) }
+								butong_net_right.οnmοuseοut = function () { MyMar4 = setInterval(Marquee4, speed) }
+							</script>
+							<!--向右滚动代码结束-->
+							<h3 style="margin-top: 30px;">本站部分代码</h3>
+							<div class="container2">
+								<ul class="imgcss">
+									<li>
+										<img src="./images/want.png" style="margin-top: 150px; box-shadow: 0px 0px 10px 10px rgb(255, 255, 255);" >
+									</li>
+									<li>
+										<script>
+											window.onload = function () {
+												var img1 = document.getElementById('img1');
+												var b = 1;
+												img1.onclick = function () {
+													switch(b){
+														case 1:img1.src = "./images/pi.png";b++;break;
+														case 2:img1.src = "./images/code1.png";b++;break;
+														case 3:img1.src = "./images/code2.png";b++;break;
+														case 4:img1.src = "./images/code3.png";b++;break;
+														case 5:img1.src = "./images/code4.png";b++;break;
+														case 6:img1.src = "./images/due.png";b++;break;
+														case 7:img1.src = "./images/smile3.jpg";b=1;break;
+													}
+												}
+											};
+										</script>
+										<img id='img1' src="./images/pi.png" />
+									</li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+
+			<!--footer-->
+			<div class="footer" id="footer">
+				<div class="container container_footer">
+					<span class="drop"> </span>
+					<p>联系方式：微信小程序搜索 ELAB报名</p>
+					<iframe src="baidu.html" loading="lazy" width="500px" height="500px"></iframe>
+					<p class="footer-class"><a href="https://www.dlut.edu.cn/" target="_blank"
+							title="大连理工大学">大工官网</a>&emsp;&emsp;&emsp;<a href="http://ee.dlut.edu.cn/" title="网页模板"
+							target="_blank">电信学部</a></p>
+					<ul class="social-icons">
+						<li><a href="#123"><span> </span> </a></li>
+						<li class="twitter"><a href="#123"><span> </span></a></li>
+						<li class="gmail"><a href="#123"><span> </span> </a></li>
+						<li class="print"><a href="#123"><span> </span> </a></li>
+					</ul>
+					<p style="font-size: 7px;">开发人员：软件组（向政昌|田冰航|吴华骅|张婷）</p>
+				</div>
+			</div>
+		</div>
+</body>
+
+</html>
